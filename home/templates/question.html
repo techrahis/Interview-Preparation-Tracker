@@ -1,0 +1,29 @@
+{% extends '__base.html' %} {% block __base %} {% load static %}
+
+<table class="table table-success table-striped">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Id</th>
+      <th scope="col">Question</th>
+      <th scope="col">Visit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">
+        <input
+          class="form-check-input me-1"
+          type="checkbox"
+          value=""
+          aria-label="..."
+        />
+      </th>
+      <td>1</td>
+      <td>Question to be taken from djndaj</td>
+      <td><a href="practice/">View</a></td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
