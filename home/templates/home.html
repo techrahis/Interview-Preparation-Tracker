@@ -18,23 +18,24 @@
 </nav>
 <section class="m-4">
     <div class="title-wrap mb-5">
-        <h2 class="section-title">Read <b>DSA</b></h2>
-        <p class="section-sub-title">Feel free to check out the source code by clicking on the GitHub icon.</p>
+        <h2 class="section-title">Start your <b>DSA</b> journey</h2>        
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for i in topic %}
         <div class="col">
             <div class="card bg-secondary">
-                <div class="card-body">
-                    <h3 class="card-title">Array I</h3>
+                <div class="card-body">                    
+                    <h3 class="card-title">{{i.title}}</h3>
                     <ul>
                         <li>Total question : 48</li>
                         <li>30 More to go</li>
                     </ul>
-                    <button type="button" class="btn btn-primary"><a href="/array" style="text-decoration: none; color: aliceblue;">Start
-                            Now</a></button>
+                    <button type="button" class="btn btn-primary"><a href="/{{i.slug}}" style="text-decoration: none; color: aliceblue;">Start
+                            Now</a></button>                    
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </section>
 
