@@ -1,3 +1,41 @@
 {% extends '__base.html' %} {% block __base %} {% load static %}
-<h1>Hello world</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Interview Preparation Tracker</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Coading Ground</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="m-4">
+    <div class="title-wrap mb-5">
+        <h2 class="section-title">Read <b>DSA</b></h2>
+        <p class="section-sub-title">Feel free to check out the source code by clicking on the GitHub icon.</p>
+    </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <div class="card bg-secondary">
+                <div class="card-body">
+                    <h3 class="card-title">Array I</h3>
+                    <ul>
+                        <li>Total question : 48</li>
+                        <li>30 More to go</li>
+                    </ul>
+                    <button type="button" class="btn btn-primary"><a href="/array" style="text-decoration: none; color: aliceblue;">Start
+                            Now</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
