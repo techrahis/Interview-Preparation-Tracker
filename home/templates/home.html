@@ -1,42 +1,50 @@
-{% extends '__base.html' %} {% block __base %} {% load static %}
+{% extends '__base.html' %} {% block __base %} {% load static %} 
+{% include 'messege.html' %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Interview Preparation Tracker</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Coading Ground</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav d-flex">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Logout</a>
-                </li>
-            </ul>
-        </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Interview Preparation Tracker</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Coading Ground</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Set Interview</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav d-flex">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/user/logout/">Logout</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
+{% block __home %} {% endblock %}
+{% for home in homeData %}
 <section class="m-4">
-    <div class="title-wrap mb-5">
-        <h2 class="section-title">Start your <b>DSA</b> journey</h2>        
-    </div>
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        {% for i in topic %}
-        <div class="col">
-            <div class="card bg-secondary">
-                <div class="card-body">                    
-                    <h3 class="card-title">{{i.title}}</h3>
-                    <ul>
-                        <li>Total question : 48</li>
-                        <li>30 More to go</li>
-                    </ul>
-                    <button type="button" class="btn btn-primary"><a href="/{{i.slug}}" style="text-decoration: none; color: aliceblue;">Start
-                            Now</a></button>                    
-                </div>
-            </div>
+  <div class="title-wrap mb-5">
+    <h2 class="section-title">
+      Start your <b>{{home.chooseCategory}}</b> journey
+    </h2>
+  </div>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col">
+      <div class="card bg-secondary">
+        <div class="card-body">
+          <h3 class="card-title">{{home.chooseTopic}}</h3>
+          <ul>
+            <li>Total question : 48</li>
+            <li>30 More to go</li>
+          </ul>
+          <button type="button" class="btn btn-primary">
+            <a href="question/" target="__blank" style="text-decoration: none; color: aliceblue">Start Now</a
+            >
+          </button>
         </div>
-        {% endfor %}
+      </div>
     </div>
+  </div>
 </section>
-
+{% endfor %}
 {% endblock %}

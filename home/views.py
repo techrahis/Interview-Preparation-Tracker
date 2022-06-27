@@ -1,16 +1,18 @@
 from django.http import HttpResponse
 from django.template import loader
-from home.models import Topic, Question
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from home.models import*
 
-
-def home(request):
-    topic = Topic.objects.all()
-    context = {
-        'topic': topic,
-    }
+@login_required(login_url='HandleLogin')
+def homepage(request):    
+    current_user = "Welcome to our site "+str(request.user)
+    messages.success(request, current_user) 
     template = loader.get_template('home.html')
-    return HttpResponse(template.render(context, request))
+    return HttpResponse(template.render({}, request))
 
-def question(request, slug):
+@login_required(login_url='HandleLogin')
+def question(request):
     template = loader.get_template('question.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({}, request))
+

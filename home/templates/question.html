@@ -1,4 +1,4 @@
-{% extends '__base.html' %} {% block __base %} {% load static %}
+{% extends 'home.html' %} {% block __home %} {% load static %}
 
 <table class="table table-success table-striped">
   <thead class="table-primary">
@@ -10,20 +10,17 @@
     </tr>
   </thead>
   <tbody>
+    {% for home in homeData %}
     <tr>
       <th scope="row">
         <input
-          class="form-check-input me-1"
-          type="checkbox"
-          value=""
-          aria-label="..."
-        />
+          class="form-check-input me-1" type="checkbox" value="" aria-label="..."/>
       </th>
       <td>1</td>
-      <td>Question to be taken from djndaj</td>
-      <td><a href="practice/">View</a></td>
+      <td>{{home.questionName}}</td>
+      <td><a href={{home.questionView}} target="__blank">{{home.questionView}}</a></td>
     </tr>
+    {% endfor %}
   </tbody>
 </table>
-
 {% endblock %}

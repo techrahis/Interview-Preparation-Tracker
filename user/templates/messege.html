@@ -1,0 +1,15 @@
+{% if messages %}
+  {% for message in messages %}
+    <div id="msg" class="alert alert-dismissible alert-success">
+      <strong>{{message}}</strong>
+    </div>
+ {% endfor %}
+{% endif %}
+
+<script>
+  var message_ele = document.getElementById("msg");
+
+  setTimeout(function() {
+      message_ele.style.display = "none";
+  }, 3000);
+</script>
