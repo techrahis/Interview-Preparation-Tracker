@@ -1,26 +1,37 @@
 {% extends 'home.html' %} {% block __home %} {% load static %}
-
-<table class="table table-success table-striped">
-  <thead class="table-primary">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Id</th>
-      <th scope="col">Question</th>
-      <th scope="col">Visit</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for home in homeData %}
-    <tr>
-      <th scope="row">
-        <input
-          class="form-check-input me-1" type="checkbox" value="" aria-label="..."/>
-      </th>
-      <td>1</td>
-      <td>{{home.questionName}}</td>
-      <td><a href={{home.questionView}} target="__blank">{{home.questionView}}</a></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div class="container mt-5">
+  <table class="table table-success table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Question</th>
+        <th scope="col">Status</th>
+        <th scope="col">Visit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in question %}
+      <tr>
+        <td>1</td>
+        <td>{{x.questionName}}</td>
+        <td>
+          {% for y in attempted %}
+          {% if y.attempted_question_qIdentifier == x.question_qIdentifier %}
+          <button class="btn btn-success">Compleated</button>
+          {% else %}
+          <form action="" method="post">
+            {% csrf_token %}
+            <input name="val" type="hidden" value={{x.question_qIdentifier}}>
+            <button type="submit" class="btn btn-info">Mark as done</button>
+          </form>
+          {% endif %}
+          {% endfor %}
+        </td>
+        <td><a href={{x.questionLink}} target="__blank"><button type="button" class="btn btn-info">View</button></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}
